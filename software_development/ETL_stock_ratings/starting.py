@@ -119,7 +119,7 @@ class Report:
         return [date, opening, closing, daily_traded_volume]
 
 def main(ISIN):
-    bucket = AWS_bucket('deutsche-boerse-xetra-pds')
+    bucket = AWS_bucket('bucket_name')
     report = Report(bucket, ISIN)
     final_output = report.create_daily_summary()
     final_output.to_csv(f"summary_{ISIN}.csv")
